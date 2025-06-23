@@ -4,9 +4,9 @@
     --color-mintblue:rgb(162, 220, 238);
     --color-mint:rgb(173, 238, 226);
     --color-darkgray:rgb(24, 24, 24);
-    --color-ebonygray:rgb(31, 31, 31);
+    --color-gray:rgb(32, 32, 32);
     --periwinkle-bottom-gradient: linear-gradient(to bottom right, rgb(154, 156, 234), rgb(162, 185, 238), rgb(162, 220, 238), rgb(173, 238, 226));
---periwinkle-top-gradient: linear-gradient(to top right, rgb(154, 156, 234), rgb(162, 185, 238), rgb(162, 220, 238), rgb(173, 238, 226));
+    --periwinkle-top-gradient: linear-gradient(to top right, rgb(154, 156, 234), rgb(162, 185, 238), rgb(162, 220, 238), rgb(173, 238, 226));
 }
 
   
