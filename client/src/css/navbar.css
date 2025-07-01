@@ -1,16 +1,38 @@
  *{
     box-sizing: border-box;
-}
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+} 
 body {
     display:flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:flex-start;
+    align-items:center;
+    background-color: var(--color-darkgray);
     min-height: 100vh;
+    
+}
+header{
+    background-color: rgba(0, 0, 0, .75);
+    position: fixed;
+    padding: 12px 16px;
+    box-shadow: 1px 15px 12px rgba(0, 0, 0, 0.75);
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    
 }
 
+li .nav-link img {
+    max-width: auto;
+    max-height: 110px;
+    margin-right: 10px;
+}
 #search-box {
     background: var(--color-gray);
     border-radius: 30px;
+    height: 58px;
 }
 
 #search-box #search-text {
@@ -19,7 +41,8 @@ body {
     background: none;
     font-size: 18px;
     width:0px;
-    padding:0px;
+    padding: 0px;
+    caret-color: var(--color-blue); 
     background: var(--periwinkle-top-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -39,5 +62,28 @@ body {
     background: var(--periwinkle-top-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
+}
+.profile .btn {
+    background: var(--periwinkle-top-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px 20px;
+    color:var(--color-blue);
+    border-color: var(--periwinkle-top-gradient);
+    font-size: 16px;
+}
+.nav a{
+     background: var(--periwinkle-top-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    align-items: center; 
+    justify-content: center;
+    font-family: "Playwrite HU", cursive;
+    font-size: 20px;
+}
+.account {
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    position: relative;
 }
