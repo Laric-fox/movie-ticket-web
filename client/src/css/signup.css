@@ -3,6 +3,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  z-index: 2;
+}
 
 html{
     font-size: 10px;
@@ -10,13 +16,26 @@ html{
 }
 
 .login-container{
-    background-image: url("../img/web.img/background.jpg");
+    background-image: url("../img/web.img/background1.jpg");
     background-size: cover;
     height: 100vh;
     width: 100%;
     position: relative;
+    transition: all 0.75s ease;
 }
 
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(105deg, rgb(0, 0, 0) 42.02%, rgba(0, 0, 0, 0) 75.63%, rgba(255, 255, 255, 0));
+    z-index: 1;
+    transition: all 0.75s ease;
+}
+
+.show-signup::before {
+    background: linear-gradient(290deg, rgb(0, 0, 0) 42.02%, rgba(0, 0, 0, 0) 75.63%, rgba(255, 255, 255, 0));
+}
 .login-overlay{
     position: absolute;
     width: 100%;
@@ -73,16 +92,15 @@ html{
     height: 50px;
     margin-top: 16px;
     padding: 0 16px;
-    color: #fff;
+    background: var(--periwinkle-top-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 1.6rem;
+    caret-color: var(--color-blue); 
     background-color:  rgba(29, 29, 29, 0.52);
     border: 1px solid var(--color-blue);
     border-radius: 4px;
     outline: none;
-}
-
-.login-form-input:focus{
-    border-bottom: 3px solid #eeaf67;
 }
 
 .login-form-input:first-child{
@@ -100,6 +118,9 @@ html{
     margin: 40px 0 14px;
     font-weight: 700;
     font-family: "Playwrite HU", cursive;
+}
+.login-form-other .button {
+  margin-bottom: 12px;
 }
 
 .login-form-help{
@@ -137,6 +158,10 @@ html{
     cursor: pointer;
     height:30px;
     width:300px;
+}
+.login-form-other .button:hover{
+    color:#fff;
+    border: 1px solid #ffffff;
 }
 
 .login-fb{
@@ -198,4 +223,85 @@ html{
     left: 0;
     bottom: 0;
     padding: 30px 0;
+}
+.form-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 660px;
+  z-index: 1;
+  top: 88px;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none; /* chống lỗi click nhầm */
+}
+
+/* Hai form riêng biệt, không chồng nhau */
+.login-side,
+.signup-side {
+  position: absolute;
+  width: 448px;
+  height: 100%;
+  padding: 60px 70px 0;
+  background-color: rgba(0, 0, 0, 0.32);
+  transition: all 0.75s ease-in-out;
+  box-shadow: 33px 0 10px rgba(0, 0, 0, 0.33);
+  pointer-events: all;
+}
+
+/* Form Login ban đầu bên trái */
+.login-side {
+  left: 170px;
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Form Signup nằm ngoài bên phải */
+.signup-side {
+  left: calc(100% + 50px); /* ra khỏi khung màn hình */
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Khi show-signup được kích hoạt */
+.login-container.show-signup .login-side {
+  left: -600px; /* trượt ra trái */
+  opacity: 0;
+  z-index: 1;
+}
+
+.login-container.show-signup .signup-side {
+  left: calc(100% - 618px); /* căn bên phải tương tự login */
+  opacity: 1;
+  z-index: 2;
+}
+/* Fix icon nằm giữa input */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-wrapper .icon {
+  position: absolute;
+  left: 12px;
+  top: 60%;
+  transform: translateY(-50%);
+  color: #ccc; /* màu icon nhẹ */
+  font-size: 1.6rem;
+}
+
+.input-wrapper .login-form-input {
+  padding-left: 40px !important; /* chừa chỗ cho icon */
+}
+
+/* Fix placeholder màu nhạt quá */
+.login-form-input::placeholder {
+  color: #bbbbbb; /* sáng hơn chút nhưng vẫn giữ phong cách tối */
+  opacity: 1;
+}
+
+/* Cho input khi focus có border sáng rõ hơn */
+.login-form-input:focus {
+  border-bottom: 3px solid #eeaf67;
+  outline: none;
 }
