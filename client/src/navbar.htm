@@ -49,7 +49,26 @@
             </header> 
         </div>
     </div>
+    
         
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 40) {
+        header.classList.add("scrolled-netflix");
+        } else {
+        header.classList.remove("scrolled-netflix");
+        }
+
+        lastScroll = currentScroll;
+    });
+    </script>  
+    <script type="module" src="./js/navbar.js"></script>
+
 </body>
 </html>

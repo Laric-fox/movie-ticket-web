@@ -30,7 +30,7 @@ html{
     top: 0; left: 0; right: 0; bottom: 0;
     background: linear-gradient(105deg, rgb(0, 0, 0) 42.02%, rgba(0, 0, 0, 0) 75.63%, rgba(255, 255, 255, 0));
     z-index: 1;
-    transition: all 0.75s ease;
+    transition: all 0.9s ease;
 }
 
 .show-signup::before {
@@ -243,7 +243,7 @@ html{
   height: 100%;
   padding: 60px 70px 0;
   background-color: rgba(0, 0, 0, 0.32);
-  transition: all 0.75s ease-in-out;
+  transition: all 0.9s ease-in-out;
   box-shadow: 33px 0 10px rgba(0, 0, 0, 0.33);
   pointer-events: all;
 }

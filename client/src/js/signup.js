@@ -3,16 +3,16 @@ window.hideSignup = function () {
 }
 
 import { auth, db } from "./firebase-config.js";
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword,fetchSignInMethodsForEmail} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-import {collection,addDoc} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 // === ĐĂNG KÝ ===
 const inpUsername = document.querySelector("#username");
 const inpEmailSignup = document.querySelector("#email_signup");
 const inpPwdSignup = document.querySelector("#password_signup");
 const inpConfirmPwd = document.querySelector("#confirm-password");
-const registerForm = document.querySelector("#signup-side");
+const registerForm = document.querySelector("#register-form");
 
-const handleRegister =async function (event) {
+const handleRegister = async function (event) {
   event.preventDefault();
 
   const username = inpUsername.value;
@@ -85,9 +85,9 @@ registerForm.addEventListener("submit", handleRegister);
 // === ĐĂNG NHẬP ===
 const inpEmailLogin = document.querySelector("#email");
 const inpPwdLogin = document.querySelector("#password");
-const loginForm = document.querySelector("#login-side");
+const loginForm = document.querySelector("#login-form");
 
-const handleLogin =async function  (event) {
+const handleLogin = async function (event) {
   event.preventDefault();
 
   const email = inpEmailLogin.value;
@@ -98,29 +98,30 @@ const handleLogin =async function  (event) {
     return;
   }
 
-  signInWithEmailAndPassword(auth,email,password)
-  .then((userCredential)=>{
-    const user = userCredential.user;
-    const userSession = {
-        user: {
-            email: user.email
-        },
-        expiry : new Date().getTime() + 2*60*60*1000 
-    };
+  console.log("Email nhập:", email);
+  console.log("Password nhập:", password);
 
-    localStorage.setItem('user_session',JSON.stringify(userSession));
-    alert("Đăng nhập thành công!");
-    window.location.href = 'index.htm';
-  })
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      const userSession = {
+        user: {
+          email: user.email
+        },
+        expiry: new Date().getTime() + 2 * 60 * 60 * 1000
+      };
+
+      localStorage.setItem('user_session', JSON.stringify(userSession));
+      alert("Đăng nhập thành công!");
+      window.location.href = 'index.htm';
+    })
     .catch(e => {
-    if (e.code === "auth/user-not-found") {
-      alert("Không tìm thấy tài khoản với email này.");
-    } else if (e.code === "auth/wrong-password") {
-      alert("Mật khẩu không đúng.");
-    } else {
-      alert("Lỗi không xác định: " + e.message);
-      console.log("Chi tiết lỗi:", e.code);
-    }
+      if (e.code === "auth/invalid-credential") {
+        alert("Bạn nhập email hoặc mật khẩu chưa đúng.");
+      } else {
+        alert("Lỗi không xác định: " + e.message);
+        console.log("Chi tiết lỗi:", e.code);
+      }
     });
 };
 

@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Netflix Giả Lập</title>
+  <link rel="shortcut icon" href="./img/web.img/logowithname.png" type="image/x-icon"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="stylesheet" href="./css/main.css"/>
+  <link rel="stylesheet" href="./css/index.css"/> 
 </head>
 <body>
-   <div class="hero-section">
-  <img src="./img/poster.img/miku.jpg" alt="Background" class="bg-image">
-  <div class="curved-overlay">
-    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <!-- Viền đỏ -->
-      <path fill="none" stroke="#ff3366" stroke-width="6"
-        d="M0,192 C480,160 960,224 1440,192" />
-      <!-- Nền đen cong -->
-      <path fill="#000000"
-        d="M0,192 C480,160 960,224 1440,192 L1440,320 L0,320 Z" />
-    </svg>
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Video nền -->
+  <div class="video-background">
+    <video autoplay muted loop id="myVideo">
+      <source src="./video/conan.mp4" type="video/mp4" />
+      Trình duyệt không hỗ trợ video.
+    </video>
+
+    <!-- Poster + Tiêu đề + Nút -->
+    <div class="content-overlay">
+      <img src="./img/phim.img/conan.jpg" alt="Poster">
+      <div class="text-area">
+        <h1>Conan: Dư Ảnh Của Độc Nhãn</h1>
+        <button class="btn btn-light"><i class="fa-solid fa-play"></i> Đặt vé</button>
+        <button class="btn btn-outline-light"><i class="fa-solid fa-circle-info"></i> Thông tin khác</button>
+      </div>
+    </div>
+  </div> <!-- KẾT THÚC video-background -->
+
+  <!-- Phần Top 10 -->
+<div class="top10-section">
+  <h2>Top 10 phim nổi bật hôm nay</h2>
+  <div class="top10-grid">
+    <div class="top10-item">
+      <h1>1</h1>
+      <img src="./img/phim.img/conan.jpg" alt="Phim 1">
+    </div>
+    <!-- Thêm các phim khác -->
   </div>
 </div>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/navbar.js"></script>
 </body>
 </html>
