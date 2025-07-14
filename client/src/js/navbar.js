@@ -1,21 +1,36 @@
-// 1. Tải navbar
-fetch("navbar.htm")
+window.addEventListener("scroll", function () {
+  const header = document.querySelector("header");
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > 40) {
+    header.classList.add("scrolled-netflix");
+  } else {
+    header.classList.remove("scrolled-netflix");
+  }
+});
+
+// Nhúng nội dung navbar.htm vào index
+fetch('./navbar.htm')
   .then(res => res.text())
   .then(data => {
-    document.getElementById("navbar").innerHTML = data;
+    document.getElementById('navbar').innerHTML = data;
 
-    // 2. Sau khi navbar đã được thêm vào trang, gắn hiệu ứng scroll
-    let lastScroll = 0;
-    window.addEventListener("scroll", function () {
-      const header = document.querySelector("header");
-      const currentScroll = window.pageYOffset;
+    // Sau khi nhúng xong, gắn sự kiện cho nút
+    const loginBtn = document.getElementById("nav-login-btn");
+    const registerBtn = document.getElementById("nav-register-btn");
 
-      if (currentScroll > 40) {
-        header.classList.add("scrolled-netflix");
-      } else {
-        header.classList.remove("scrolled-netflix");
-      }
+    if (loginBtn) {
+      loginBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "signup.htm?mode=login";
+      });
+    }
 
-      lastScroll = currentScroll;
-    });
+    if (registerBtn) {
+      registerBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "navbar.htm?mode=signup";
+      });
+    }
   });
+

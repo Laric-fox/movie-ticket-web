@@ -14,7 +14,7 @@
 <body>
     <div class="page-wrapper">
         <div class="banner-group ">
-            <header>
+            <header class="scrolled-netflix">
                 <div class="container-fluid d-flex justify-content-between align-items-center">
                     <div class="logo ">
                         <img src="./img/web.img/logowithname.png" alt="">
@@ -28,7 +28,7 @@
                         <li class="nav-item"><a href="#" class="nav-link"><img src="./img/web.img/dadat.png" alt=""></a></li>
                     </ul>
                     <div class="account">
-                        <div>
+                        <div style="position: relative;">
                             <form action="" id="search-box">
                                 <input type="text" id="search-text" placeholder="Tìm kiếm" required>
                                 <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -41,8 +41,8 @@
                                 Account
                             </button>
                             <ul id="author-menu-drd" class="dropdown-menu" aria-labelledby="profile-dropdown">
-                                <li><a class="dropdown-item" href="#">Sign in</a></li>
-                                <li><a class="dropdown-item" href="#">Sign up</a></li>
+                                <li><a class="dropdown-item" href="#" id="nav-login-btn">Sign in</a></li>
+                                <li><a class="dropdown-item" href="#" id="nav-register-btn">Sign up</a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,23 +51,7 @@
     </div>
     
         
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-    <script>
-    let lastScroll = 0;
-
-    window.addEventListener("scroll", function () {
-        const header = document.querySelector("header");
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 40) {
-        header.classList.add("scrolled-netflix");
-        } else {
-        header.classList.remove("scrolled-netflix");
-        }
-
-        lastScroll = currentScroll;
-    });
-    </script>  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script> 
     <script type="module" src="./js/navbar.js"></script>
 
 </body>

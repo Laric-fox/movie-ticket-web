@@ -1,24 +1,16 @@
- *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    justify-content: start;
-} 
-body {
-    display:flex;
-    justify-content:flex-start;
-    align-items:center;
-    
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  justify-content: start;
 }
-/* header{
-    background-color: rgba(0, 0, 0, .75);
-    position: fixed;
-    box-shadow: 1px 15px 12px rgba(0, 0, 0, 0.75);
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9;
-} */
+
+body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 header {
   background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
@@ -29,10 +21,13 @@ header {
   transition: all 0.3s ease;
   backdrop-filter: blur(4px);
 }
+
 header::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 100px;
   background: linear-gradient(
     to bottom,
@@ -48,87 +43,96 @@ header.scrolled-netflix {
   background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-} 
+}
+
 .container-fluid {
-    padding:0 35px;
+  padding: 0 35px;
 }
 
 li .nav-link img {
-    max-width: auto;
-    max-height: 100px;
-    margin-right: 10px;
+  max-width: auto;
+  max-height: 100px;
+  margin-right: 10px;
 }
 
 #search-box {
-    background: var(--color-gray);
-    border-radius: 30px;
-    height: 58px;
+  background: var(--color-gray);
+  border-radius: 30px;
+  height: 58px;
 }
 
 #search-box #search-text {
-    border:none;
-    outline: none;
-    background: none;
-    font-size: 18px;
-    width:0px;
-    padding: 0px;
-    caret-color: var(--color-blue); 
-    background: var(--periwinkle-top-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: width 0.5s ease-in-out;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  width: 0px;
+  padding: 0px;
+  caret-color: var(--color-blue);
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: width 0.5s ease-in-out;
 }
-#search-box:hover #search-text, #search-box #search-text:valid {
-    width: 250px;
-    padding: 10px 0px 10px 15px;
+
+#search-box:hover #search-text,
+#search-box #search-text:valid {
+  width: 250px;
+  padding: 10px 0px 10px 15px;
 }
+
 #search-box #search-btn {
-    font-size: 18px;
-    align-items: center;
-    cursor:pointer;
-    border:none; 
-    padding:16px 18px;
-    color:var(--color-blue);
-    background: var(--periwinkle-top-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-size: 18px;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  padding: 16px 18px;
+  color: var(--color-blue);
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 .profile .btn {
-    background: var(--periwinkle-top-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding: 10px 20px;
-    color:var(--color-blue);
-    border-color: var(--periwinkle-top-gradient);
-    font-size: 18px;
-    font-family: "Arima", system-ui;
-}    
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 10px 20px;
+  color: var(--color-blue);
+  border-color: var(--periwinkle-top-gradient);
+  font-size: 18px;
+  font-family: "Arima", system-ui;
+}
+
 .profile img {
-    width: auto;
-    height:30px;
-    margin-right: 10px;
-    background: var(--periwinkle-top-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  width: auto;
+  height: 30px;
+  margin-right: 10px;
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.nav a{
-    background: var(--periwinkle-top-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    align-items: center; 
-    justify-content: center;
-    font-family: "Playwrite HU", cursive;
-    font-size: 18px;
+
+.nav a {
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playwrite HU", cursive;
+  font-size: 18px;
 }
+
 .account {
-    display: flex;
-    align-items: center;
-    justify-content:flex-end;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
 }
+
 /* Khi scroll xuống sẽ thêm hiệu ứng */
 header.scrolled-netflix {
-    backdrop-filter: blur(8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
 }

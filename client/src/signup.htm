@@ -136,5 +136,25 @@
     }
   </script>
   <script type="module" src="./js/signup.js"></script>
+  <script>
+  function showSignup() {
+    document.getElementById("container").classList.add("show-signup");
+  }
+
+  function hideSignup() {
+    document.getElementById("container").classList.remove("show-signup");
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+
+    if (mode === "signup") {
+      showSignup();
+    } else {
+      hideSignup();
+    }
+  });
+</script>
 </body>
 </html>
