@@ -29,7 +29,7 @@ fetch('./navbar.htm')
     if (registerBtn) {
       registerBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        window.location.href = "navbar.htm?mode=signup";
+        window.location.href = "signup.htm?mode=signup";
       });
     }
   });

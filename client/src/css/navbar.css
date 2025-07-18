@@ -136,3 +136,30 @@ header.scrolled-netflix {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
 }
+.dropdown-menu {
+  background-color: var(--color-gray);
+  border-radius: 10px;
+  padding: 10px;
+  color:var(--color-blue);
+}
+.dropdown-item {
+  color: var(--color-blue);
+  font-size: 16px;
+  padding: 10px;
+  font-family: "Arima", system-ui;
+}
+.dropdown-item:hover {
+  background-color: rgba(34, 34, 34, 0.635);
+  color: var(--color-blue);
+}
+ul .sub-menu li img{
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  height:200px;
+  width: auto;
+}
+ul ul {
+  display: flex;
+  list-style: none;
+}

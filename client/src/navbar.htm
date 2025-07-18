@@ -17,11 +17,24 @@
             <header class="scrolled-netflix">
                 <div class="container-fluid d-flex justify-content-between align-items-center">
                     <div class="logo ">
-                        <img src="./img/web.img/logowithname.png" alt="">
+                        <a href="index.htm"><img src="./img/web.img/logowithname.png" alt=""></a>
                     </div>
                     <ul class="nav d-flex align-items-center ">
                         <li class="nav-item"><a href="#" class="nav-link"><img src="./img/web.img/vephim.png" alt=""></a></li>
-                        <li class="nav-item"><a href="#" class="nav-link ">Phim</a></li>
+                        <li class="nav-item dropdown movie-dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Phim
+                            </a>
+                            <ul class="dropdown-menu custom-movie-menu">
+                                <li><a class="dropdown-item" href="#">Đang Chiếu</a>
+                                    <ul class="sub-menu">
+                                        <li><img src="./img/phim.img/conan.jpg" alt="Phim Đang Chiếu"></li>
+                                        <li><img src="./img/phim.img/conan.jpg" alt="Phim Đang Chiếu"></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Phim Lẻ</a></li>
+                            </ul>
+                            </li>
                         <li class="nav-item"><a href="#" class="nav-link ">Sản Phẩm</a></li>
                         <li class="nav-item"><a href="#" class="nav-link ">Sự Kiện</a></li>
                         <li class="nav-item"><a href="#" class="nav-link ">Rạp/Giá Vé</a></li>
@@ -35,7 +48,7 @@
                             </form>
                         </div>    
                         <div class="profile">
-                            <button type="button" id="profile-dropdown" class="dropdown-toggle btn btn-secondary"
+                            <button type="button" id="profile-dropdown" class="dropdown-toggle btn"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="img/web.img/fox-2.png" alt="Profile">
                                 Account
