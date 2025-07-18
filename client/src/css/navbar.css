@@ -29,12 +29,10 @@ header::before {
   left: 0;
   right: 0;
   height: 100px;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0) 100%);
   pointer-events: none;
   z-index: -1;
 }
@@ -56,41 +54,59 @@ li .nav-link img {
 }
 
 #search-box {
-  background: var(--color-gray);
-  border-radius: 30px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 58px;
   height: 58px;
+  overflow: visible;
+  display: block;
+  border-radius: 30px;
+  background: var(--color-gray);
+  transition: width 0.5s ease-in-out;
 }
 
+
 #search-box #search-text {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  width: 0;
+  height: 100%;
+  padding: 0;
   border: none;
+  border-radius: 30px 0 0 30px;
   outline: none;
   background: none;
   font-size: 18px;
-  width: 0px;
-  padding: 0px;
-  caret-color: var(--color-blue);
-  background: var(--periwinkle-top-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: var(--color-gray);
+  color: var(--color-blue);
   transition: width 0.5s ease-in-out;
+  z-index: 5;
 }
 
 #search-box:hover #search-text,
 #search-box #search-text:valid {
   width: 250px;
-  padding: 10px 0px 10px 15px;
+  padding: 10px 0 10px 15px;
+  z-index: 10;
 }
 
+
 #search-box #search-btn {
-  font-size: 18px;
-  align-items: center;
-  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58px;
+  height: 58px;
   border: none;
-  padding: 16px 18px;
   color: var(--color-blue);
   background: var(--periwinkle-top-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  z-index: 11;
 }
 
 .profile .btn {
@@ -124,10 +140,10 @@ li .nav-link img {
 }
 
 .account {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  position: relative;
 }
 
 /* Khi scroll xuống sẽ thêm hiệu ứng */

@@ -1,0 +1,18 @@
+[
+  {
+    "src": "./video/baycago.mp4",
+    "poster": "./img/phim.img/baycago.jpg",
+    "title": "Bảy Cá́o Giới"
+  },
+  {
+    "src": "./video/bikipluyenrong.mp4",
+    "poster": "./img/phim.img/bikipluyenrong.jpg",
+    "title": "Bí Kíp Luyện Rồng"
+  },
+  {
+    "src": "./video/conan.mp4",
+    "poster": "./img/phim.img/conan.jpg",
+    "title": "Conan: Dư Ảnh Của Độc Nhãn"
+  }
+  
+]
