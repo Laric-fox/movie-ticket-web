@@ -35,3 +35,4 @@ video.addEventListener("loadedmetadata", () => {
     video.msRequestFullscreen();
   }
 });
+

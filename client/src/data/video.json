@@ -1,8 +1,8 @@
 [
   {
     "src": "./video/baycago.mp4",
-    "poster": "./img/phim.img/baycago.jpg",
-    "title": "Bảy Cá́o Giới"
+    "poster": "./img/phim.img/dancago.jpg",
+    "title": "Đàn Cá́ Gỗ"
   },
   {
     "src": "./video/bikipluyenrong.mp4",
@@ -13,6 +13,11 @@
     "src": "./video/conan.mp4",
     "poster": "./img/phim.img/conan.jpg",
     "title": "Conan: Dư Ảnh Của Độc Nhãn"
+  },
+  {
+    "src": "./video/miku.mp4",
+    "poster": "./img/phim.img/miku.jpg",
+    "title": "A Miku Who Can't Sing"
   }
   
 ]
