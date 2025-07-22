@@ -91,7 +91,7 @@ body {
 .top10-section {
   position: relative;
   margin-top: -100px;
-  padding: 100px 60px 80px;
+  padding: 100px 60px 20px;
   background: linear-gradient(to bottom,
     rgba(32, 32, 32, 0),
     rgba(32, 32, 32, 0.92) 10.04%,
@@ -132,22 +132,21 @@ body {
   display: flex;
   align-items: center;
   padding-top: 20px;
-  gap:10px;
 }
 
 .top10-rank {
-  font-family: "Arima", system-ui;
-  font-size: 100px;
+  font-size: 280px;
+  font-family: "Roboto", sans-serif;
   line-height: 1;
   background: var(--periwinkle-top-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100px; /* cố định chiều rộng để số 10 không bị ép */
+  width: 115px; /* cố định chiều rộng để số 10 không bị ép */
   text-align: right;
   flex-shrink: 0;
+  font-weight: 400;
 }
 
 .top10-img img {
@@ -186,4 +185,99 @@ body {
 }
 .top10-item img:hover {
   transform: scale(1.05);
+}
+/* ===== PHẦN TAB PHIM ===== */
+.showing-section {
+  padding: 40px 5vw;
+  background: linear-gradient(rgba(14, 14, 14, 1), rgba(5, 5, 5, 0.91));
+  border-radius: 10px;
+  margin-top: -40px;
+}
+
+.showing-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.left-combo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.left-combo img {
+  width: 35px;
+  height: auto;
+}
+
+.left-combo h2 {
+  font-size: 24px;
+  font-family: "Arima", system-ui;
+  margin: 0;
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tab-header {
+  display: flex;
+  gap: 15px;
+}
+
+.tab-button {
+  font-size: 16px;
+  font-family: "Arima", system-ui;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  padding: 6px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.tab-button.active {
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tab-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: var(--periwinkle-top-gradient);
+}
+.showing-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.6s ease;
+  z-index: 0;
+}
+
+.showing-content.active {
+  opacity: 1;
+  transform: translateX(0%);
+  position: relative;
+  z-index: 1;
+}
+
+.showing-wrapper {
+  position: relative;
+  min-height: 300px; 
+  overflow: hidden;
 }

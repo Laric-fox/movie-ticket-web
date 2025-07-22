@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', initRandomVideo);
 
 video.addEventListener("loadedmetadata", () => {
   if (video.requestFullscreen) {
-    video.requestFullscreen();
+    video.requestFullscreen;
   } else if (video.webkitRequestFullscreen) {
     video.webkitRequestFullscreen();
   } else if (video.msRequestFullscreen) {
