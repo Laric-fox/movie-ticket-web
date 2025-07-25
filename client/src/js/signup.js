@@ -63,10 +63,10 @@ const handleRegister = async function (event) {
     const user = userCredential.user;
 
     const userData = {
-      username,
-      email,
-      password,
-      role_id,
+      username: username,
+      email: email,
+      password: password,
+      role_id: role_id,
       balance: 0,
     };
 
