@@ -1,28 +1,54 @@
-  const tabButtons = document.querySelectorAll(".tab-button");
-  const contents = {
-    now: document.getElementById("showing-now"),
-    upcoming: document.getElementById("showing-upcoming")
-  };
+import { db } from './firebase-config.js';
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
 
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      // Không làm gì nếu đã active
-      if (button.classList.contains("active")) return;
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabContents = document.querySelectorAll(".tab-content");
+const now = new Date();
 
-      // Lấy tab mục tiêu
-      const target = button.textContent.includes("chiếu") ? "now" : "upcoming";
+// 👇 Tab switching
+tabButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    // Active tab button
+    tabButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
 
-      // Chuyển trạng thái tab button
-      tabButtons.forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      // Chuyển nội dung hiển thị
-      Object.keys(contents).forEach(key => {
-        if (key === target) {
-          contents[key].classList.add("active");
-        } else {
-          contents[key].classList.remove("active");
-        }
-      });
+    // Active content
+    const target = button.dataset.tab;
+    tabContents.forEach(content => {
+      content.classList.remove("active");
+      if (content.classList.contains(target)) {
+        content.classList.add("active");
+      }
     });
   });
+});
+
+// 👇 Load movie data
+async function loadMovies() {
+  const querySnapshot = await getDocs(collection(db, "Movie"));
+
+  const nowContainer = document.querySelector(".now-showing .movie-slider");
+  const soonContainer = document.querySelector(".coming-soon .movie-slider");
+
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const movieTime = data.time?.toDate?.();
+
+    const html = `
+      <div class="movie-card">
+        <img src="${data.image}" alt="${data.name}">
+        <h4>${data.name}</h4>
+      </div>
+    `;
+
+    if (!movieTime || !data.image || !data.name) return;
+
+    if (movieTime <= now) {
+      nowContainer.innerHTML += html;
+    } else {
+      soonContainer.innerHTML += html;
+    }
+  });
+}
+
+loadMovies();
