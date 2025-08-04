@@ -22,7 +22,7 @@
 <body>
   <!-- Navbar -->
   <div id="navbar"></div>
-  <script type="module" src="./src/js/navbar.js"></script>
+  <script type="module" src="./js/navbar.js"></script>
 
 <section class="movie-hero">
   <div class="video-background">
@@ -33,24 +33,67 @@
   </div>
 
   <div class="movie-info-container">
-    <img src="./img/phim.img/conan.jpg" alt="Poster" class="movie-poster">
-    <div class="movie-details">
-      <h1 class="movie-title">Conan: Dư Ảnh Của Độc Nhãn</h1>
-      <p class="movie-contents">Phim xoay quanh vụ án bí ẩn có liên quan đến quá khứ của thanh tra Yamato và một lời hứa chưa trọn vẹn. </p>
-      <p class="movie-meta"><strong>Thể loại:</strong> Hành động, Trinh thám</p>
-      <p class="movie-meta"><strong>Điểm đánh giá:</strong> 9.2/10</p>
-      <p class="movie-meta"><strong>Quốc gia:</strong> Nhật Bản</p>
-      <p class="movie-meta"><strong>Đạo diễn:</strong> Aoyama Gosho</p>
-      <div class="movie-buttons">
-        <button class="btn primary">Đặt vé</button>
-      </div>
+  <img src="./img/phim.img/conan.jpg" alt="Poster" class="movie-poster" />
+
+  <div class="movie-details">
+    <h1 class="movie-title"></h1>
+    <p class="movie-contents"></p>
+
+    <p class="movie-meta"><strong>Thể loại:</strong> <span class="movie-category"></span></p>
+    <p class="movie-meta"><strong>Đạo diễn:</strong> <span class="movie-direction"></span></p>
+    <p class="movie-meta"><strong>Thời lượng:</strong> <span class="movie-duration"></span> phút</p>
+    <p class="movie-meta"><strong>Ngôn ngữ:</strong> <span class="movie-language"></span></p>
+    <p class="movie-meta"><strong>Xếp hạng:</strong> <span class="movie-rank"></span></p>
+    <p class="movie-meta"><strong>Rated:</strong> <span class="movie-rated"></span></p>
+    <p class="movie-meta"><strong>Loại chiếu:</strong> <span class="movie-showing-type"></span></p>
+    <p class="movie-meta"><strong>Thời gian:</strong> <span class="movie-time"></span></p>
+
+    <div class="movie-buttons">
+      <button class="btn primary">Đặt vé</button>
     </div>
   </div>
+</div>
 </section>
+<!-- phần bình luận -->
+<section class="cinema-comments">
+  <h2 class="comments-title">Bình luận</h2>
+  <div id="comment-box-container">
+    <img id="avatar-comment" src="./img/web.img/fox-2.png" alt="">
+    <form action="" id="comment-form">
+      <input id="comment-input" type="text" placeholder="Viết bình luận..." required>
+      <button type="submit" id="comment-submit"><i class="fa fa-paper-plane" ></i></button>
+    </form>
+  </div>
+  <div id="comments" class="comments-list">
+    <!-- Bình luận sẽ được thêm vào đây -->
+     <div class="comment-content">
+      <img src="./img/web.img/fox-2.png" id="avatar-comment" alt="">
+      <div class="comment-item">
+        <div class="comment-text">
+          <strong>Username</strong>
+          <p>Title</p>
+        </div>
+        <p>Just now</p>
+        </div>
+      </div>
+    </div>
+    <button id="load-more-comments" style="display: none;" class="btn btn-outline-light mt-3">Xem thêm bình luận</button>
+  </div>
+     <section class="recommended-movies">
+  <h2 class="section-title">Phim Đề Xuất</h2>
+  <div class="movie-list">
+    <!-- Các phim đề xuất sẽ được thêm vào đây -->
+  </div>
+</section>
+</section>
+
+<!-- phim đề xuất -->
+
 
   <!-- Script -->
   <script type="module" src="./js/navbar.js"></script>
   <script type="module" src="./js/movie.js"></script>
+  <script type="module" src="./js/comments.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

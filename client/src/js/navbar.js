@@ -20,6 +20,13 @@ window.addEventListener('scroll', () => {
   }
 });
 
+
+// Nhúng footer
+fetch('footer.htm')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  });
 // Nhúng navbar vào
 fetch('./navbar.htm')
   .then((res) => res.text())
@@ -116,3 +123,4 @@ fetch('./navbar.htm')
       }
     });
   });
+  

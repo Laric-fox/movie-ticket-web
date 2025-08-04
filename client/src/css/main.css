@@ -8,7 +8,17 @@
     --periwinkle-bottom-gradient: linear-gradient(to bottom right, rgb(154, 156, 234), rgb(162, 185, 238), rgb(162, 220, 238), rgb(173, 238, 226));
     --periwinkle-top-gradient: linear-gradient(to top right, rgb(154, 156, 234), rgb(162, 185, 238), rgb(162, 220, 238), rgb(173, 238, 226));
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
+a:hover,
+a:focus,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
 .logo img {
     max-width: 140px;
 }
