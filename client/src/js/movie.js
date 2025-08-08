@@ -68,4 +68,4 @@ if (movieId) {
   movieHero.innerHTML = `<p>Không có ID phim trong đường dẫn.</p>`;
 }
 
-/* ------------------ BÌNH LUẬN ------------------ */
+// ------------------ HIỂN THỊ PHIM ĐỀ XUẤT ------------------

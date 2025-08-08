@@ -1,0 +1,90 @@
+:root {
+  --color-periwinkle: #9bafff;
+  --color-mintblue: #a8f8ff;
+  --color-darkgray: #1f1f1f;
+  --color-gray: #333;
+  --color-white: #fff;
+}
+
+body {
+  background-color: var(--color-darkgray);
+  color: var(--color-white);
+  font-family: 'Arima', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.booking-step {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.step-container {
+  background-color: var(--color-gray);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.step-box {
+  margin-bottom: 25px;
+}
+
+.step-box h5 {
+  margin-bottom: 10px;
+  color: var(--color-mintblue);
+}
+
+.form-control, .date-list button, .time-list button {
+  background-color: var(--color-darkgray);
+  color: var(--color-white);
+  border: 1px solid var(--color-periwinkle);
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.date-list, .time-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.date-list button:hover,
+.time-list button:hover,
+.form-control:hover {
+  background-color: var(--color-periwinkle);
+  color: #000;
+}
+
+.date-list button.active,
+.time-list button.active {
+  background-color: var(--color-periwinkle);
+  color: #000;
+}
+
+.btn-gradient {
+  background: linear-gradient(45deg, var(--color-periwinkle), var(--color-mintblue));
+  border: none;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-gradient:hover {
+  opacity: 0.85;
+}
+
+.booking-title {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .step-container {
+    padding: 20px;
+  }
+}

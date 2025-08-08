@@ -21,9 +21,9 @@ body {
 
 /* VIDEO NỀN */
 .video-background {
-  position: absolute;
+  position: absolute !important;
   width: 100%;
-  height: 80vh;
+  height: 80vh!important;
   top: 0;
   left: 0;
   z-index: 0;
@@ -289,4 +289,126 @@ body {
 #load-more-comments:hover {
   background: var(--color-periwinkle);
   color: black;
+}
+.suggested-movies-section {
+  padding: 40px 20px;
+  background: var(--color-darkgray); /* cùng tone với nền bình luận */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+   /* background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+.suggested-movies-section h2 {
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.movie-suggestions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.suggested-movie-item {
+  width: 160px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.suggested-movie-item:hover {
+  transform: scale(1.05);
+}
+
+.movie-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.hover-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 0 0 8px 8px;
+}
+.recommended-movies-section {
+  padding: 40px 0;
+  background: var(--color-darkgray); /* Nền tối đồng bộ */
+  color: white;
+}
+
+.recommended-movies-section .section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  background: var(--periwinkle-top-gradient); /* Gradient chữ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.recommended-slider {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.recommended-slider .movie-card {
+  width: 160px;
+  background: rgba(255, 255, 255, 0.05); /* Nền card bán trong suốt */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.recommended-slider .movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.recommended-slider .movie-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.recommended-slider .movie-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.recommended-slider .movie-info h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-mintblue);
+  margin: 6px 0 4px;
+}
+
+.recommended-slider .movie-info p {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0;
 }

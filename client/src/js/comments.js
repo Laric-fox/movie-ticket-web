@@ -1,15 +1,6 @@
 import { auth, db } from './firebase-config.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
-import {
-  addDoc,
-  collection,
-  getDocs,
-  serverTimestamp,
-  query,
-  orderBy,
-  doc,
-  getDoc
-} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
+import {addDoc,collection,getDocs,serverTimestamp,query,orderBy,doc,getDoc} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
 
 const commentForm = document.getElementById('comment-form');
 const commentInput = document.getElementById('comment-input');
@@ -18,7 +9,7 @@ const commentBoxContainer = document.getElementById('comment-box-container');
 
 let currentUser = null;
 let currentMovieId = null;
-const COMMENTS_TO_SHOW = 4;
+const COMMENTS_TO_SHOW = 3;
 
 function renderComment({ username, content, time }) {
   const div = document.createElement('div');

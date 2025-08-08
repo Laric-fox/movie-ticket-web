@@ -22,7 +22,6 @@
 <body>
   <!-- Navbar -->
   <div id="navbar"></div>
-  <script type="module" src="./js/navbar.js"></script>
 
 <section class="movie-hero">
   <div class="video-background">
@@ -55,6 +54,7 @@
 </div>
 </section>
 <!-- phần bình luận -->
+
 <section class="cinema-comments">
   <h2 class="comments-title">Bình luận</h2>
   <div id="comment-box-container">
@@ -79,20 +79,22 @@
     </div>
     <button id="load-more-comments" style="display: none;" class="btn btn-outline-light mt-3">Xem thêm bình luận</button>
   </div>
-     <section class="recommended-movies">
-  <h2 class="section-title">Phim Đề Xuất</h2>
-  <div class="movie-list">
-    <!-- Các phim đề xuất sẽ được thêm vào đây -->
-  </div>
+    <section class="recommended-movies-section">
+      <div class="container">
+        <h2 class="section-title">Phim Đề Xuất</h2>
+        <div class="recommended-slider">
+          <!-- JavaScript sẽ render phim đề xuất ở đây -->
+        </div>
+      </div>
+    </section>
 </section>
-</section>
-
-<!-- phim đề xuất -->
+<div id="footer-placeholder"></div>
 
 
   <!-- Script -->
   <script type="module" src="./js/navbar.js"></script>
   <script type="module" src="./js/movie.js"></script>
+  <script type="module" src="./js/suggested.js"></script>
   <script type="module" src="./js/comments.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>

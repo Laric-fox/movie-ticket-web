@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đặt vé - CineFox</title>
+  <link rel="shortcut icon" href="./img/web.img/logowithname.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/booking.css">
+</head>
+<body>
+  <header>
+    <img src="./img/web.img/logowithname.png" alt="CineFox Logo" style="height: 60px; margin: 20px;">
+  </header>
+
+  <div class="container">
+    <div class="left-panel">
+      <h2>Chọn vé</h2>
+
+      <div class="form-group">
+        <label for="cinema-select">Chọn rạp:</label>
+        <select id="cinema-select"></select>
+      </div>
+
+      <div class="form-group">
+        <label for="date-select">Chọn ngày:</label>
+        <input type="date" id="date-select">
+      </div>
+
+      <div class="form-group">
+        <label>Chọn giờ chiếu:</label>
+        <div id="time-list"></div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <h3>Tóm tắt đặt vé</h3>
+      <div id="summary-box">
+        <p><strong>Phim:</strong> <span id="summary-movie">---</span></p>
+        <p><strong>Rạp:</strong> <span id="summary-cinema">---</span></p>
+        <p><strong>Ngày:</strong> <span id="summary-date">---</span></p>
+        <p><strong>Giờ:</strong> <span id="summary-time">---</span></p>
+      </div>
+
+      <button id="next-button">Tiếp tục</button>
+    </div>
+  </div>
+
+  <script type="module" src="./js/booking.js"></script>
+</body>
+</html>

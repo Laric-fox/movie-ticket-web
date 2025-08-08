@@ -1,0 +1,87 @@
+/* Nền toàn trang */
+body {
+  background: linear-gradient(to bottom, var(--color-darkgray), #0d0d0d);
+  color: white;
+  font-family: "Arima", system-ui;
+}
+
+/* Tiêu đề chính */
+h3, h5, h6 {
+  color: var(--color-mintblue);
+  text-shadow: 0 0 5px var(--color-mintblue);
+  font-family: "Arima", system-ui;
+}
+
+/* Khung thông tin ví và lịch sử */
+.balance-info, .transaction-history, #balance-form {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-gray);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  color: white;
+  backdrop-filter: blur(6px);
+  font-family: "Arima", system-ui;
+}
+
+/* Text phụ */
+.text-muted {
+  color: #ccc !important;
+}
+
+/* Input, select */
+input.form-control, select.form-control {
+  background: rgba(50, 50, 50, 0.85); /* nền tối mờ */
+  border: 1px solid var(--color-periwinkle);
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Khi focus vào input */
+input.form-control:focus, select.form-control:focus {
+  background: rgba(60, 60, 60, 0.9); /* vẫn nền tối */
+  outline: none;
+  border: 1px solid var(--color-periwinkle);
+  box-shadow: 0 0 6px var(--color-periwinkle);
+  color: white;
+}
+
+/* Placeholder */
+input.form-control::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+/* Button chính */
+#balance-form .btn-primary {
+  background: var(--periwinkle-bottom-gradient);
+  border: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+#balance-form .btn-primary:hover {
+  background: var(--periwinkle-top-gradient);
+}
+
+/* Lịch sử giao dịch trống */
+.transaction-list p {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #bbb;
+}
+
+/* Responsive padding */
+.page-content .container {
+  padding: 2rem;
+}
+
+/* Rounded-sm (nếu Bootstrap không có sẵn) */
+.rounded-sm {
+  border-radius: 6px;
+}
+textarea.form-control {
+  background: rgba(50, 50, 50, 0.85);
+  color: white;
+  border: 1px solid var(--color-periwinkle);
+}
