@@ -20,7 +20,7 @@ async function loadRecommendedMovies() {
       // Hiển thị phim đang chiếu, và KHÔNG trùng với phim hiện tại
       if (movie.showing_typ === 'now_showing' && movieId !== currentMovieId) {
         html += `
-          <a href="movie.html?id=${movieId}" class="movie-card">
+          <a href="./movie.htm?id=${movieId}" class="movie-card">
             <img src="${movie.image || './img/placeholder.png'}" alt="${movie.name}" class="movie-thumbnail" />
             <div class="movie-info">
               <h3>${movie.name || 'Không rõ tên'}</h3>

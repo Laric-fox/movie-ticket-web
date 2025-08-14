@@ -1,90 +1,227 @@
-:root {
-  --color-periwinkle: #9bafff;
-  --color-mintblue: #a8f8ff;
-  --color-darkgray: #1f1f1f;
-  --color-gray: #333;
-  --color-white: #fff;
-}
-
+/* booking.css — chỉ cho trang đặt vé. KHÔNG đụng CSS navbar của bạn. */
+* { box-sizing: border-box; }
+:root { --navbar-height: 100px; }
 body {
-  background-color: var(--color-darkgray);
-  color: var(--color-white);
-  font-family: 'Arima', sans-serif;
-  padding: 0;
-  margin: 0;
+  padding-top: 110px;
+  background-color: #1c1c1c;
+  color: #fff;
 }
 
-.booking-step {
-  max-width: 1000px;
-  margin: auto;
-  padding: 40px 20px;
+.booking-wrap {
+  max-width: 1280px;
+  margin: calc(var(--navbar-height) + 16px) auto 48px;
+  padding: 0 20px;
+  color: #fff;
 }
 
-.step-container {
-  background-color: var(--color-gray);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+/* header */
+.booking-head {
+  display: flex; justify-content: space-between; align-items: end;
+  gap: 12px; margin-bottom: 18px;
+  z-index: 2;
+}
+.brand { display: flex; gap: 12px; align-items: center; }
+.logo { height: 44px; }
+.brand h1 { margin: 0; font-size: 1.25rem; color: var(--color-mint); }
+.brand p { margin: 2px 0 0 0; color: rgba(255,255,255,.75); }
+
+/* steps */
+.steps { display:flex; gap:8px; }
+.step {
+  padding:6px 10px; border-radius:8px; font-weight:700; user-select:none;
+  color:rgba(255,255,255,.6); background: transparent; border:1px solid rgba(255,255,255,.08);
+}
+.step.active {
+  background: var(--periwinkle-top-gradient);
+  color: var(--color-darkgray);
+  border-color: transparent;
 }
 
-.step-box {
-  margin-bottom: 25px;
+/* panels */
+.panel { display:none; }
+.panel.active { display:block; }
+.panel > h2 {
+  font-size: 1.4rem; margin: 6px 0 16px;
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
 }
 
-.step-box h5 {
-  margin-bottom: 10px;
-  color: var(--color-mintblue);
+/* STEP 1 — poster grid */
+.poster-grid {
+  display:grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  gap:16px; margin-bottom: 16px;
+}
+.poster-card {
+  background:#222; border-radius:10px; overflow:hidden; cursor:pointer;
+  border:2px solid transparent; transition: transform .16s ease, border .16s ease;
+}
+.poster-card img { width:100%; height:300px; object-fit:cover; display:block; }
+.poster-card .p-title { padding:10px; text-align:center; font-weight:700; font-size:1rem; }
+.poster-card:hover { transform: translateY(-3px); }
+.poster-card.active { border-color: var(--color-mintblue); }
+
+/* STEP 2 — showtime */
+.showtime-card {
+  display:grid; grid-template-columns: 260px 1fr; gap: 20px;
+  background:#222; border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:18px;
+}
+.movie-preview img {
+  width: 240px; height: 320px; object-fit:cover; border-radius:8px; display:block;
+}
+.movie-preview .meta { margin-top:10px; color:rgba(255,255,255,.8); font-size:.95rem; }
+.movie-preview h3 { margin:10px 0 4px; font-size:1.1rem; }
+
+.showtime-controls {
+  display:grid; grid-template-columns: repeat(3, minmax(220px,1fr));
+  gap: 18px 16px; align-items:start;
+}
+.field { display:flex; flex-direction:column; gap:8px; }
+.field.full { grid-column: 1 / -1; }
+.field label { color: var(--color-mint); font-weight:800; font-size:1rem; }
+
+.field select, .field input {
+  padding: 12px 14px; font-size: 1rem; border-radius: 8px;
+  border:1px solid rgba(255,255,255,.15); background:#2a2a2a; color:#fff; outline:none;
+}
+.btn.solid {
+  padding: 12px 16px; border: none; border-radius: 8px; font-weight:800;
+  background: var(--periwinkle-top-gradient); color: var(--color-darkgray); cursor: pointer;
 }
 
-.form-control, .date-list button, .time-list button {
-  background-color: var(--color-darkgray);
-  color: var(--color-white);
-  border: 1px solid var(--color-periwinkle);
-  padding: 10px 15px;
-  border-radius: 6px;
+/* CHIP Ngày / Giờ */
+.chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  padding: 10px 14px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: 0.3s;
+  user-select: none;
+  background: #232323;
+  border: 1px solid rgba(255,255,255,.12);
+  font-weight: 700;
+  color: #fff;
+  transition: all 0.25s ease;
+}
+.chip:hover {
+  background: #2f2f2f;
+  transform: scale(1.05);
+}
+.chip.active {
+  background: linear-gradient(135deg, #8fffe1, #aab4ff);
+  color: #111;
+  border: 2px solid #8fffe1;
+  box-shadow: 0 0 12px rgba(170, 180, 255, 0.85);
+  transform: scale(1.08);
 }
 
-.date-list, .time-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+/* STEP 3 — ghế */
+.seat-card {
+  background:#222; border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:16px;
+}
+.screen {
+  text-align:center; padding: 12px; border-radius: 8px;
+  background: var(--periwinkle-top-gradient); color: var(--color-darkgray);
+  font-weight: 900; margin-bottom: 12px;
+}
+.seat-area {
+  display:grid; grid-template-columns: repeat(10, 1fr);
+  gap: 10px; padding: 8px;
+}
+.seat {
+  width:100%; padding-top:100%; position:relative; border-radius:6px;
+  background:#3a3a3a; cursor:pointer; user-select:none;
+  transition: background 0.2s ease;
+}
+.seat .seat-inner {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-weight:800; color:#fff; font-size:.9rem;
+}
+.seat:hover:not(.sold):not(.selected) { background: #4a4a4a; }
+.seat.selected {
+  background: var(--periwinkle-bottom-gradient); color: var(--color-darkgray);
+}
+.seat.sold {
+  background:#a32626; cursor:not-allowed; opacity:.95;
+}
+.legend { display:flex; gap:16px; justify-content:center; color:rgba(255,255,255,.85); margin-top: 10px; }
+.legend .box { display:inline-block; width:18px; height:14px; border-radius:3px; margin-right:6px; vertical-align:middle; }
+.legend .box.empty { background:#3a3a3a; }
+.legend .box.selected { background: var(--periwinkle-bottom-gradient); }
+.legend .box.sold { background: #a32626; }
+
+/* STEP 4 — summary */
+.summary-grid {
+  display:grid; grid-template-columns: 1.1fr .9fr; gap: 16px;
+}
+.panel-box {
+  background:#222; border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:16px;
+}
+.panel-box .field { margin-bottom: 12px; }
+.panel-box .field input, .panel-box .field select {
+  width:100%; padding: 12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,.15);
+  background:#2a2a2a; color:#fff; outline:none;
 }
 
-.date-list button:hover,
-.time-list button:hover,
-.form-control:hover {
-  background-color: var(--color-periwinkle);
-  color: #000;
+/* actions */
+.actions { display:flex; justify-content:flex-end; gap:10px; margin-top: 12px; }
+.actions.right { justify-content: flex-end; }
+.btn {
+  padding: 12px 16px; border-radius: 8px; border:none; cursor:pointer; font-weight:800;
+  background:#262626; color:#fff;
+}
+.btn.primary {
+  background: var(--periwinkle-top-gradient);
+  color: var(--color-darkgray);
+}
+.btn.outline {
+  background: transparent;
+  border:1px solid rgba(255,255,255,.1);
 }
 
-.date-list button.active,
-.time-list button.active {
-  background-color: var(--color-periwinkle);
-  color: #000;
+/* responsive */
+@media (max-width: 1100px) {
+  .showtime-card { grid-template-columns: 200px 1fr; }
+  .movie-preview img { width: 200px; height: 280px; }
+  .showtime-controls { grid-template-columns: repeat(2, minmax(220px,1fr)); }
+  .seat-area { grid-template-columns: repeat(6, 1fr); }
+  .summary-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .poster-grid { grid-template-columns: repeat(2, 1fr); }
+  .poster-card img { height: 240px; }
+  .showtime-card { grid-template-columns: 1fr; }
+  .movie-preview { order: -1; }
+  .showtime-controls { grid-template-columns: 1fr; }
+  .seat-area { grid-template-columns: repeat(4, 1fr); }
+}
+/* Chip row */
+.chip-row { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
 }
 
-.btn-gradient {
-  background: linear-gradient(45deg, var(--color-periwinkle), var(--color-mintblue));
-  border: none;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s;
+/* Chip mặc định */
+.chip {
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  background: #232323;
+  border: 1px solid rgba(255, 255, 255, .12);
+  font-weight: 700;
+  color: #fff;
+  transition: all 0.2s ease;
 }
 
-.btn-gradient:hover {
-  opacity: 0.85;
+.chip:hover {
+  background: #2a2a2a;
 }
 
-.booking-title {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .step-container {
-    padding: 20px;
-  }
+/* Chip đang được chọn */
+.chip.active {
+  background: linear-gradient(135deg, #8fffe1, #aab4ff);
+  color: #111;
+  border: 2px solid #8fffe1;
+  box-shadow: 0 0 10px rgba(170, 180, 255, 0.8);
+  transform: scale(1.05);
 }

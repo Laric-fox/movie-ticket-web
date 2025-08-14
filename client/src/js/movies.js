@@ -11,12 +11,15 @@ async function loadMovies() {
     nowShowingSlider.innerHTML = '';
     comingSoonSlider.innerHTML = '';
 
+    let nowCount = 0;
+    let soonCount = 0;
+
     querySnapshot.forEach((doc) => {
       const movie = doc.data();
       console.log("Movie:", movie); 
 
       const movieHTML = `
-        <a href="movie.htm?id=${doc.id}" class="movie-card" >
+        <a href="movie.htm?id=${doc.id}" class="movie-card">
           <img src="${movie.image || './img/placeholder.png'}" alt="${movie.name}" data-id="${doc.id}" class="movie-thumbnail" />
           <div class="movie-info">
             <h3>${movie.name || 'Không rõ tên'}</h3>
@@ -25,10 +28,13 @@ async function loadMovies() {
         </a>
       `;
 
-      if (movie.showing_typ === 'now_showing') {
+      if (movie.showing_typ === 'now_showing' && nowCount < 4) {
         nowShowingSlider.innerHTML += movieHTML;
-      } else if (movie.showing_typ === 'coming_soon') {
+        nowCount++;
+      } 
+      else if (movie.showing_typ === 'coming_soon' && soonCount < 4) {
         comingSoonSlider.innerHTML += movieHTML;
+        soonCount++;
       }
     });
   } catch (error) {
@@ -37,6 +43,7 @@ async function loadMovies() {
 }
 
 document.addEventListener('DOMContentLoaded', loadMovies);
+
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.tab-button');
   const contents = document.querySelectorAll('.tab-content');
@@ -51,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
 document.querySelectorAll('.movie-image').forEach(img => {
   img.addEventListener('click', () => {
     const movieId = img.getAttribute('data-id');

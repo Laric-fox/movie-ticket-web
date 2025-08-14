@@ -1,0 +1,200 @@
+/* Sidebar */
+.sidebar {
+    background: #111!important; /* nền tối */
+    min-height: 100vh;
+    padding: 30px 0; /* logo rộng hơn */
+    border-right: 1px solid rgba(162, 185, 238, 0.2);
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .logo img {
+    max-width: 160px; /* logo to hơn */
+}
+
+.card-body {
+    background-color: var(--color-darkgray);
+    border-radius: 8px;
+    box-shadow: -1px 0 48px rgba(90, 207, 242, 0.2);
+    border:none;
+}
+.sidebar a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: rgba(162, 220, 238, 0.1);
+    padding-left: 25px;
+}
+
+/* Gradient text cho tiêu đề và menu */
+.sidebar a,
+h1, h2, h3, h4, h5, h6 {
+    background: var(--periwinkle-bottom-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Header admin */
+.header {
+    background-color: #111;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(162, 185, 238, 0.2);
+}
+
+.header .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Bảng danh sách */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1b1b1b!important;
+    color: #fff;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(162, 185, 238, 0.2);
+}
+
+th {
+    background-color: #222;
+    background: var(--periwinkle-bottom-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+tr:hover {
+    background-color: rgba(162, 220, 238, 0.05);
+}
+
+/* Nền tối cho khu vực nội dung */
+.content-admin {
+    background-color: #111;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Form thêm sản phẩm */
+form {
+    background-color: #1b1b1b;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(162, 185, 238, 0.2);
+}
+
+form label {
+    color: #fff;
+}
+
+/* Input, select, textarea */
+form input,
+form textarea,
+form select {
+    background-color: #222 !important; /* nền xám đậm */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-clip: padding-box;
+}
+
+/* Placeholder */
+form input::placeholder,
+form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    background: var(--periwinkle-bottom-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Focus */
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: var(--color-mintblue);
+    box-shadow: 0 0 10px var(--color-mintblue);
+    outline: none;
+    background: var(--periwinkle-bottom-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Nút */
+.btn-primary {
+    background: var(--periwinkle-bottom-gradient);
+    border: none;
+    color: #111;
+    font-weight: bold;
+}
+
+.btn-cancle {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Nền tối toàn trang */
+html, body {
+    background-color: #111 !important;
+    color: #fff;
+}
+
+/* Sidebar và Content căn đều chiều cao */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Nền tối cho bảng sản phẩm */
+.product-table {
+    background-color: #1b1b1b;
+    border-radius: 8px;
+    border: 1px solid rgba(162, 185, 238, 0.3);
+}
+
+/* Bảng */
+.table {
+    color: #fff;
+}
+
+.table thead {
+    background-color: #222!important;
+}
+
+.table tbody tr {
+    background-color: #1b1b1b!important;
+}
+
+.table tbody tr:hover {
+    background-color: #2a2a2a;
+}
+
+/* Input, select, file upload chung */
+input, select {
+    background-color: #222 !important;
+    color: #fff !important;
+    border: 1px solid rgba(162, 185, 238, 0.4);
+}
+
+/* Gradient chữ tiêu đề */
+h5 {
+    background: var(--periwinkle-bottom-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.form-control {
+    color: var(--color-blue);
+}
+.table>:not(caption)>*>* {
+    background-color: var(--color-darkgray)!important;
+    box-shadow: none!important;
+}

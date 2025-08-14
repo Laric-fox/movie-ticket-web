@@ -10,17 +10,17 @@ async function initRandomVideo() {
   const { src, poster, title } = videos[idx];
 
   // 3. Cập nhật thẻ <video> và overlay
-  const sourceEl = video.querySelector('source');
-  const imgOverlay = document.querySelector('.content-overlay img');
-  const titleOverlay = document.querySelector('.content-overlay h1');
+    const sourceEl = video.querySelector('source');
+    const imgOverlay = document.querySelector('.content-overlay img');
+    const titleOverlay = document.querySelector('.content-overlay h1');
 
-  sourceEl.src = src;
-  video.load();
-  video.play();
+    sourceEl.src = src;
+    video.load();
+    video.play();
 
-  imgOverlay.src = poster;
-  imgOverlay.alt = title;
-  titleOverlay.textContent = title;
+    imgOverlay.src = poster;
+    imgOverlay.alt = title;
+    titleOverlay.textContent = title;
 }
 
 document.addEventListener('DOMContentLoaded', initRandomVideo);
