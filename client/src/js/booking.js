@@ -40,7 +40,7 @@ const confirmPayBtn = document.getElementById('confirmPay');
 
 /* ==================== HẰNG SỐ + STATE ==================== */
 const PRICE = 80000;         // Giá 1 ghế
-const ROWS  = 8, COLS = 12;  // Layout ghế
+const ROWS  = 9, COLS = 12;  // Layout ghế
 const DEFAULT_CINEMAS = ['Galaxy Nguyễn Du', 'Galaxy Vincom', 'Galaxy Landmark'];
 const DEFAULT_TIMES   = ['10:00','13:00','16:00','19:00','21:30'];
 const HOLD_MS = 5 * 60 * 1000; // 5 phút giữ ghế
@@ -80,6 +80,21 @@ function setStep(n){
   panels[n].classList.add('active');
   stepsEls.forEach(s => s.classList.toggle('active', Number(s.dataset.step) === n));
 }
+
+/* ==================== STYLES FOR SEATS (ADDED) ==================== */
+(function injectSeatStyles(){
+  const style = document.createElement('style');
+  style.textContent = `
+    /* seat states */
+    .seat { display:inline-block; width:44px; height:44px; margin:6px; border-radius:6px; user-select:none; }
+    .seat .seat-inner { display:flex; align-items:center; justify-content:center; height:100%; font-weight:600; }
+    .seat.available { background:#f0f0f0; cursor:pointer; pointer-events:auto; }
+    .seat.selected { background:#4caf50; color:#fff; pointer-events:auto; }
+    .seat.sold { background:#999; color:#fff; cursor:not-allowed; pointer-events:none; } /* ADDED: paid seats */
+    .seat.held { background:#ffb84d; color:#111; cursor:not-allowed; pointer-events:none; }   /* ADDED: held seats */
+  `;
+  document.head.appendChild(style);
+})();
 
 /* ==================== AUTH ==================== */
 onAuthStateChanged(auth, async (user) => {
@@ -134,9 +149,20 @@ async function init(){
 /* ==================== NAVIGATION ==================== */
 function bindNav(){
   toStep2Btn.addEventListener('click', () => setStep(2));
-  backTo1Btn?.addEventListener('click', () => setStep(1));
-  backTo2Btn?.addEventListener('click', () => setStep(2));
-  backTo3Btn?.addEventListener('click', () => setStep(3));
+
+  // FIX: hủy listener khi back để tránh rò rỉ / duplicate listeners
+  backTo1Btn?.addEventListener('click', () => {
+    if (unsubscribeSeats) { unsubscribeSeats(); unsubscribeSeats = null; }
+    setStep(1);
+  });
+  backTo2Btn?.addEventListener('click', () => {
+    if (unsubscribeSeats) { unsubscribeSeats(); unsubscribeSeats = null; }
+    setStep(2);
+  });
+  backTo3Btn?.addEventListener('click', () => {
+    if (unsubscribeSeats) { unsubscribeSeats(); unsubscribeSeats = null; }
+    setStep(3);
+  });
 
   toStep3Btn.addEventListener('click', () => {
     if (!SELECTED_SHOWTIME) return alert('Vui lòng chọn rạp / ngày / giờ rồi nhấn "Chọn suất này".');
@@ -317,6 +343,8 @@ function renderSeats(){
       const id = seatId(r,c);
       const el = document.createElement('div');
       el.className = 'seat available';
+      el.setAttribute('data-seat', id); // ADDED: dễ lookup
+      el.setAttribute('role', 'button');
       el.innerHTML = `<div class="seat-inner">${id}</div>`;
       el.addEventListener('click', () => onSeatClick(el, id));
       seatArea.appendChild(el);
@@ -330,7 +358,7 @@ function onSeatClick(el, id){
   if (!SELECTED_SHOWTIME?.id) return;
 
   // nếu ghế đang bị sold (paid/held bởi người khác) thì thôi
-  if (el.classList.contains('sold')) return;
+  if (el.classList.contains('sold') || el.classList.contains('held')) return;
 
   // nếu mình đã chọn (đang hold bởi mình) => bỏ chọn (release)
   if (el.classList.contains('selected')){
@@ -357,8 +385,10 @@ function subscribeSeatStream(){
   if (unsubscribeSeats) { unsubscribeSeats(); unsubscribeSeats = null; }
   // reset UI seats
   Array.from(seatArea.children).forEach(el => {
-    el.classList.remove('sold','selected');
+    el.classList.remove('sold','selected','held');
     el.classList.add('available');
+    el.title = '';
+    el.style.pointerEvents = 'auto'; // ADDED
   });
   SELECTED_SEATS = [];
   toStep4Btn.disabled = true;
@@ -369,8 +399,10 @@ function subscribeSeatStream(){
 
     // clear tất cả trước khi apply trạng thái
     Array.from(seatArea.children).forEach(el => {
-      el.classList.remove('sold','selected');
+      el.classList.remove('sold','selected','held');
       el.classList.add('available');
+      el.title = '';
+      el.style.pointerEvents = 'auto'; // ADDED
     });
     SELECTED_SEATS = [];
 
@@ -383,21 +415,34 @@ function subscribeSeatStream(){
       const exp = d.expiresAt?.toDate?.() || new Date(0);
       const notExpired = exp.getTime() > now;
 
+      // paid => khoá vĩnh viễn
       if (d.status === 'paid') {
-        el.classList.remove('available','selected');
+        el.classList.remove('available','selected','held');
         el.classList.add('sold');
+        el.title = 'Đã bán';
+        el.style.pointerEvents = 'none'; // ADDED: prevent clicks
       } else if (d.status === 'held' && notExpired) {
+        // held (còn hạn)
         if (d.heldBy === HOLDER_ID()) {
-          el.classList.remove('available','sold');
+          // held by me => mark selected
+          el.classList.remove('available','sold','held');
           el.classList.add('selected');
+          el.title = 'Bạn đang giữ ghế';
+          el.style.pointerEvents = 'auto'; // still allow me to click to release
           if (!SELECTED_SEATS.includes(seat)) SELECTED_SEATS.push(seat);
         } else {
-          el.classList.remove('available','selected');
-          el.classList.add('sold');
+          // held by others => treat as blocked
+          el.classList.remove('available','selected','sold');
+          el.classList.add('held');
+          el.title = 'Đang được giữ bởi người khác';
+          el.style.pointerEvents = 'none'; // ADDED
         }
       } else {
-        el.classList.remove('sold','selected');
+        // expired or no doc => available
+        el.classList.remove('sold','selected','held');
         el.classList.add('available');
+        el.title = '';
+        el.style.pointerEvents = 'auto'; // ADDED
       }
     });
 
@@ -489,18 +534,40 @@ async function onConfirmPay(){
   const holder = HOLDER_ID();
 
   try {
+    // Sửa: đảm bảo **read-before-write** trong transaction
     await runTransaction(db, async (tx) => {
-      // ===== 1) Chốt ghế đã hold bởi mình =====
-      for (const seat of SELECTED_SEATS) {
-        const sref = doc(db, 'BookedSeats', `${st.id}__${seat}`);
-        const ssnap = await tx.get(sref);
+      // -- READ PHASE --
+      // 1) Đọc tất cả seat docs trước
+      const seatRefs = SELECTED_SEATS.map(seat => doc(db, 'BookedSeats', `${st.id}__${seat}`));
+      const seatSnaps = await Promise.all(seatRefs.map(ref => tx.get(ref)));
+
+      // Validate seats
+      for (let i = 0; i < seatSnaps.length; i++) {
+        const ssnap = seatSnaps[i];
+        const seat = SELECTED_SEATS[i];
         if (!ssnap.exists()) throw new Error(`Ghế ${seat} chưa được giữ`);
         const d = ssnap.data();
-        const exp = d.expiresAt?.toDate?.() || new Date(0);
+        const exp = (d.expiresAt && d.expiresAt.toDate) ? d.expiresAt.toDate() : new Date(0);
         const notExpired = exp.getTime() > Date.now();
         if (d.status === 'paid') throw new Error(`Ghế ${seat} đã thanh toán`);
         if (!(d.heldBy === holder && notExpired)) throw new Error(`Ghế ${seat} không còn giữ bởi bạn`);
+      }
 
+      // 2) Đọc user doc
+      let usersDocId = CURRENT_USER_DOC_ID;
+      if (!usersDocId) {
+        throw new Error('Không tìm thấy người dùng trong "users". Hãy đăng xuất và đăng nhập lại.');
+      }
+      const userRef = doc(db, 'users', usersDocId);
+      const userSnap = await tx.get(userRef);
+      if (!userSnap.exists()) throw new Error('Không tìm thấy user trong "users".');
+      const usersData = userSnap.data();
+      const balance = Number(usersData.balance || 0);
+      if (balance < total) throw new Error('Số dư ví không đủ');
+
+      // -- WRITE PHASE: tất cả write sau khi đã đọc hết --
+      // a) mark seats paid
+      for (const sref of seatRefs) {
         tx.set(sref, {
           status: 'paid',
           paidBy: CURRENT_USER.uid,
@@ -508,31 +575,13 @@ async function onConfirmPay(){
         }, { merge: true });
       }
 
-      // ===== 2) Lấy doc người dùng trong "users" theo email & trừ balance =====
-      
-      let usersDocId = CURRENT_USER_DOC_ID;
-      let usersData = CURRENT_USER_DOC;
-
-      if (!usersDocId) {
-        const qy = query(collection(db, 'users'), where('email','==', CURRENT_USER.email));
-        const uSnap = await tx.get(qy); 
-        throw new Error('Không tìm thấy người dùng trong "users". Hãy đăng xuất và đăng nhập lại.');
-      }
-
-      const userRef = doc(db, 'users', usersDocId);
-      const userSnap = await tx.get(userRef);
-      if (!userSnap.exists()) throw new Error('Không tìm thấy user trong "users".');
-      usersData = userSnap.data();
-
-      const balance = Number(usersData.balance || 0);
-      if (balance < total) throw new Error('Số dư ví không đủ');
-
+      // b) trừ balance
       tx.update(userRef, {
         balance: balance - total,
         updatedAt: serverTimestamp()
       });
 
-      // ===== 3) Ghi log giao dịch (subcollection users/{id}/transactions) =====
+      // c) log transaction
       const transRef = doc(collection(db, 'users', usersDocId, 'transactions'));
       tx.set(transRef, {
         type: 'debit',
@@ -541,7 +590,7 @@ async function onConfirmPay(){
         createdAt: serverTimestamp()
       });
 
-      // ===== 4) Tạo booking =====
+      // d) tạo booking
       const bookingRef = doc(collection(db, 'Bookings'));
       tx.set(bookingRef, {
         id: bookingRef.id,
@@ -563,12 +612,17 @@ async function onConfirmPay(){
       });
     });
 
+    // Sau khi transaction thành công, cập nhật biến local nếu có
+    if (CURRENT_USER_DOC) {
+      CURRENT_USER_DOC.balance = Number(CURRENT_USER_DOC.balance || 0) - total;
+    }
+
     alert('Thanh toán thành công! Vé đã được lưu.');
     // reset + về trang chủ
     SELECTED_SEATS = [];
     if (unsubscribeSeats) { unsubscribeSeats(); unsubscribeSeats = null; }
-    // Quay lại home theo yêu cầu
-    window.location.href = '/';
+    window.location.href = './index.htm';
+
 
   } catch (e) {
     console.error('Lỗi khi thanh toán:', e);
