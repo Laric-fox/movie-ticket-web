@@ -1,0 +1,134 @@
+/* ===== Tickets (dựa đúng HTML đã cho) ===== */
+
+/* Nền & font */
+body {
+  background: var(--color-darkgray);
+  color: #fff;
+  font-family: "Arima", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Tiêu đề trang dùng gradient của bạn */
+h2 {
+  text-align: center;
+  margin: 28px auto 18px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: .2px;
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Wrap list */
+.tickets-list {
+  max-width: 980px;
+  margin: 0 auto 60px;
+  padding: 0 16px;
+}
+
+/* Card vé */
+.ticket-item {
+  background: var(--color-gray);
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin: 14px 0;
+  border: 1px solid rgba(255,255,255,.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* viền sáng nhẹ dùng gradient của bạn */
+.ticket-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;              /* độ dày viền */
+  background: var(--periwinkle-bottom-gradient);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: .22;
+  pointer-events: none;
+}
+
+.ticket-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(110, 231, 183, .32); /* ám xanh mint */
+  background: linear-gradient(
+    0deg,
+    rgba(255,255,255,.02),
+    rgba(255,255,255,0)
+  ), var(--color-gray);
+  box-shadow: 0 16px 34px rgba(0,0,0,.45);
+}
+
+/* Tiêu đề (note) */
+.ticket-item h6 {
+  font-size: 1.1rem;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  background: var(--periwinkle-top-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Dòng thông tin chung */
+.ticket-item p {
+  margin: 6px 0;
+  font-size: 0.98rem;
+  color: #eaeaea;
+}
+
+/* Số tiền nổi bật */
+.ticket-item p:nth-of-type(2) {
+  font-weight: 700;
+  color: var(--color-mint);
+}
+
+/* Ngày đặt dùng periwinkle */
+.ticket-item p:nth-of-type(3) {
+  color: var(--color-periwinkle);
+}
+
+/* Loại giao dịch (debit/credit) */
+.ticket-item p:nth-of-type(4) {
+  font-style: italic;
+  color: var(--color-mintblue);
+  opacity: .9;
+}
+
+/* Badge loại giao dịch tự động nếu muốn thêm */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+.badge.debit  { background: rgba(239,68,68,.18); color: #ef4444; }
+.badge.credit { background: rgba(110,231,183,.18); color: var(--color-mint); }
+
+/* Trạng thái rỗng / thông báo */
+.tickets-list .text-center {
+  text-align: center;
+  color: var(--color-periwinkle);
+  background: rgba(255,255,255,.04);
+  border: 1px dashed rgba(255,255,255,.1);
+  padding: 16px 18px;
+  border-radius: 14px;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h2 { font-size: 1.6rem; margin-top: 22px; }
+  .ticket-item { padding: 16px; border-radius: 14px; }
+  .ticket-item h6 { font-size: 1.02rem; }
+  .ticket-item p { font-size: .96rem; }
+}
