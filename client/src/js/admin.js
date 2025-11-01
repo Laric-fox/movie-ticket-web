@@ -75,7 +75,7 @@ document.getElementById('movie-form').addEventListener('submit', async (event) =
   const upload = async (fieldName, file) => {
     const fd = new FormData();
     fd.append(fieldName, file);
-    const res = await fetch("http://localhost:3000/upload", { method: "POST", body: fd });
+    const res = await fetch("https://movie-ticket-web.onrender.com/upload", { method: "POST", body: fd });
     if (!res.ok) {
       const text = await res.text();  // đọc nội dung lỗi thay vì .json()
       throw new Error(`Upload ${fieldName} fail ${res.status}: ${text}`);
