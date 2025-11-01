@@ -84,7 +84,7 @@ fetch('./navbar.htm')
     `;
 
         authorMenu.innerHTML = `
-      <li><a class="dropdown-item" href="#" >Hồ sơ</a></li>
+      <li><a class="dropdown-item" href="./profile.htm" >Hồ sơ</a></li>
       <li><a class="dropdown-item" href="./wallet.htm">Ví của tôi</a></li>
       <li><a class="dropdown-item" href="./index.htm" id="logout-btn" style="color: red!important;">Đăng xuất</a></li>
     `;
