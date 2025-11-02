@@ -51,7 +51,7 @@ const getMovie = async (id) => {
           <p class="movie-meta"><strong>Thời gian:</strong> ${formatDate(movie.time)}</p>
 
           <div class="movie-buttons">
-            <button class="btn primary">Đặt vé</button>
+            <a href="./booking.htm" class="btn primary">Đặt vé</a>
           </div>
         </div>
       </div>
