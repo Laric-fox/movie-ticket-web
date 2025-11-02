@@ -1,50 +1,126 @@
 .profile-container {
+  width: 90%;
   max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
-  background: var(--color-darkgray);
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  color: white;
+  margin: 155px auto 0 auto;
+  background: linear-gradient(180deg, #1e1e1e, #2b2b2b);
+  color: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Tiêu đề */
 .profile-container h2 {
   text-align: center;
-  color: var(--color-periwinkle);
-  margin-bottom: 20px;
+  background: var(--periwinkle-bottom-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 26px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
 }
 
+/* Mỗi trường dữ liệu */
 .profile-field {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
+/* Nhãn */
 .profile-field label {
-  font-weight: 600;
-  margin-bottom: 5px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #f1f1f1;
 }
 
+/* Ô nhập liệu */
 .profile-field input {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  background: var(--color-gray);
-  color: white;
+  padding: 10px 12px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background-color: #3a3a3a;
+  color: #f0f0f0;
+  /* outline: none; */
+  transition: 0.3s;
+  font-size: 15px;
+  outline: 1px solid var(--periwinkle-top-gradient);
 }
 
-.profile-container button {
-  width: 100%;
-  padding: 10px;
+.profile-field input:focus {
+  background: var(--periwinkle-top-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  outline: 1px solid rgb(6, 78, 172);
+  box-shadow: 0 0 6px var(--periwinkle-top-gradient);
+}
+
+/* Nút đổi mật khẩu */
+#btnChangePwd {
+  margin-top: 8px;
+  background: var(--periwinkle-bottom-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  color: #1e1e1e;
   border: none;
-  border-radius: 6px;
-  background: var(--color-blue);
-  color: white;
+  border-radius: 8px;
+  padding: 8px 14px;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.2s;
+  transition: 0.25s;
+  align-self: flex-start;
 }
 
-.profile-container button:hover {
-  background: var(--color-mintblue);
+#btnChangePwd:hover {
+  background-color: var(--periwinkle-top-gradient);
+  transform: scale(1.05);
+}
+
+/* Nút lưu thay đổi */
+#btnSaveChanges {
+  display: block;
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: var(--periwinkle-bottom-gradient);
+  color: #1e1e1e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#btnSaveChanges:hover {
+  background: var(--periwinkle-top-gradient);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(7, 45, 128, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 25px;
+  }
+
+  .profile-container h2 {
+    font-size: 22px;
+  }
+
+  .profile-field input {
+    font-size: 14px;
+  }
+
+  #btnSaveChanges {
+    font-size: 15px;
+  }
+}
+#balance{
+  margin-left: 10px;
+}
+.balance{
+  display: flex;
+  flex-direction: row;
 }

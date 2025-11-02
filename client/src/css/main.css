@@ -32,3 +32,9 @@ a:visited {
 .rounder-md {
     border-radius:8px;
 } */
+
+body{
+  background: #121212;
+  margin: 0;
+  padding: 0;
+}
