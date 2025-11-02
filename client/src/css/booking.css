@@ -21,7 +21,7 @@ body {
   z-index: 2;
 }
 .brand { display: flex; gap: 12px; align-items: center; }
-.logo { height: 44px; }
+/* .logo { height: 44px; } */
 .brand h1 { margin: 0; font-size: 1.25rem; color: var(--color-mint); }
 .brand p { margin: 2px 0 0 0; color: rgba(255,255,255,.75); }
 

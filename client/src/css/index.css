@@ -190,7 +190,6 @@ body {
 .showing-section {
   padding: 40px 5vw;
   background: linear-gradient(rgba(14, 14, 14, 1), rgba(5, 5, 5, 0.91));
-  border-radius: 10px;
   margin-top: -40px;
 }
 
@@ -202,7 +201,7 @@ body {
   backdrop-filter: blur(10px);
   padding: 12px 24px;
   border-radius: 12px;
-  margin-bottom: 30px;
+  margin: 30px 0 40px 0;
   flex-wrap: wrap;
   box-shadow: 0 6px 37px rgba(89, 185, 255, 0.51);
 }
@@ -356,103 +355,4 @@ body {
   border-radius: 6px;
   margin: 0;
   font-weight: 500;
-}
-
-/* footer */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  border-top: 1px solid var(--color-gray);
-  padding-top: 20px;
-}
-
-.footer-logo-contact {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer-logo {
-  height: 50px;
-  object-fit: contain;
-}
-
-.footer-contact p {
-  margin: 3px 0;
-  font-size: 14px;
-  color: var(--color-mintblue);
-}
-
-.footer-contact a {
-  color: var(--color-mintblue);
-  text-decoration: none;
-}
-
-.footer-contact a:hover {
-  color: var(--color-periwinkle);
-}
-
-.footer-socials {
-  display: flex;
-  gap: 15px;
-}
-
-.footer-socials img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-  transition: filter 0.2s;
-}
-
-.footer-socials img:hover {
-  filter: brightness(0) invert(0.7) sepia(1) hue-rotate(190deg);
-}
-.footer {
-  background-color: #1b1b1b;
-  color: var(--color-mintblue);
-  padding: 40px 20px;
-  font-family: 'Arima', sans-serif;
-}
-
-.footer-columns {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: auto;
-  text-align: left;
-}
-
-.footer-column {
-  flex: 1 1 200px;
-  margin: 10px 20px;
-}
-
-.footer-column h3 {
-  color: var(--color-mint);
-  font-size: 26px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-column li {
-  margin-bottom: 10px;
-}
-
-.footer-column a {
-  color: var(--color-mintblue);
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.footer-column a:hover {
-  color: var(--color-periwinkle);
 }

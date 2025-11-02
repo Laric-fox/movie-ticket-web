@@ -12,11 +12,19 @@ import {
 
 // Scroll hiệu ứng cho navbar
 window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
+  const header = document.querySelector('.container-fluid');
   if (window.pageYOffset > 40) {
     header.classList.add('scrolled-netflix');
   } else {
     header.classList.remove('scrolled-netflix');
+  }
+});
+window.addEventListener('scroll-btn', () => {
+  const search = document.getElementById('search-btn');
+  if (window.pageYOffset > 40) {
+    search.classList.add('scrolled-search-btn');
+  } else {
+    search.classList.remove('scrolled-search-btn');
   }
 });
 
@@ -84,7 +92,7 @@ fetch('./navbar.htm')
     `;
 
         authorMenu.innerHTML = `
-      <li><a class="dropdown-item" href="./profile.htm" >Hồ sơ</a></li>
+      <li><a class="dropdown-item" href="#" >Hồ sơ</a></li>
       <li><a class="dropdown-item" href="./wallet.htm">Ví của tôi</a></li>
       <li><a class="dropdown-item" href="./index.htm" id="logout-btn" style="color: red!important;">Đăng xuất</a></li>
     `;
