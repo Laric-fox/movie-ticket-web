@@ -1,0 +1,77 @@
+[
+  {
+    "category": "Nước uống",
+    "products": [
+      { "name": "Coca Cola", "img": "https://i.imgur.com/5QXiY.jpg", "price": 20000, "hot": true },
+      { "name": "Sprite", "img": "https://i.imgur.com/5QXiY.jpg", "price": 18000 },
+      { "name": "Fanta", "img": "https://i.imgur.com/5QXiY.jpg", "price": 19000 },
+      { "name": "Pepsi", "img": "https://i.imgur.com/5QXiY.jpg", "price": 20000 },
+      { "name": "7 Up", "img": "https://i.imgur.com/5QXiY.jpg", "price": 18000 },
+      { "name": "Mirinda", "img": "https://i.imgur.com/5QXiY.jpg", "price": 19000 },
+      { "name": "Trà xanh", "img": "https://i.imgur.com/5QXiY.jpg", "price": 22000, "hot": true },
+      { "name": "Trà đào", "img": "https://i.imgur.com/5QXiY.jpg", "price": 25000 },
+      { "name": "Nước suối", "img": "https://i.imgur.com/5QXiY.jpg", "price": 10000 },
+      { "name": "Soda chanh", "img": "https://i.imgur.com/5QXiY.jpg", "price": 15000 }
+    ]
+  },
+  {
+    "category": "Đồ ăn",
+    "products": [
+      { "name": "Bắp rang bơ", "img": "https://i.imgur.com/wpxuL.jpg", "price": 25000, "hot": true },
+      { "name": "Snack rong biển", "img": "https://i.imgur.com/wpxuL.jpg", "price": 15000 },
+      { "name": "Khoai tây chiên", "img": "https://i.imgur.com/wpxuL.jpg", "price": 20000 },
+      { "name": "Pizza mini", "img": "https://i.imgur.com/wpxuL.jpg", "price": 35000 },
+      { "name": "Hotdog", "img": "https://i.imgur.com/wpxuL.jpg", "price": 30000 },
+      { "name": "Sandwich", "img": "https://i.imgur.com/wpxuL.jpg", "price": 28000 },
+      { "name": "Hamburger", "img": "https://i.imgur.com/wpxuL.jpg", "price": 32000, "hot": true },
+      { "name": "Kẹo dẻo", "img": "https://i.imgur.com/wpxuL.jpg", "price": 12000 },
+      { "name": "Socola", "img": "https://i.imgur.com/wpxuL.jpg", "price": 18000 },
+      { "name": "Snack phô mai", "img": "https://i.imgur.com/wpxuL.jpg", "price": 20000, "hot": true }
+    ]
+  },
+  {
+    "category": "Combo",
+    "products": [
+      { "name": "Combo 1: Bắp + Nước", "img": "https://i.imgur.com/wpxuL.jpg", "price": 40000 },
+      { "name": "Combo 2: 2 Nước + Bắp", "img": "https://i.imgur.com/wpxuL.jpg", "price": 45000, "hot": true },
+      { "name": "Combo 3: Snack + Nước", "img": "https://i.imgur.com/wpxuL.jpg", "price": 42000 },
+      { "name": "Combo 4: Pizza + Nước", "img": "https://i.imgur.com/wpxuL.jpg", "price": 55000 },
+      { "name": "Combo 5: Hotdog + Nước", "img": "https://i.imgur.com/wpxuL.jpg", "price": 50000 },
+      { "name": "Combo 6: Sandwich + Trà", "img": "https://i.imgur.com/wpxuL.jpg", "price": 53000 },
+      { "name": "Combo 7: Hamburger + Nước", "img": "https://i.imgur.com/wpxuL.jpg", "price": 56000, "hot": true },
+      { "name": "Combo 8: Socola + Nước", "img": "https://i.imgur.com/wpxuL.jpg", "price": 40000 },
+      { "name": "Combo 9: Snack phô mai + Trà", "img": "https://i.imgur.com/wpxuL.jpg", "price": 45000 },
+      { "name": "Combo 10: Bắp + Snack + Nước", "img": "https://i.imgur.com/wpxuL.jpg", "price": 60000 }
+    ]
+  },
+  {
+    "category": "Quà tặng",
+    "products": [
+      { "name": "Gấu bông", "img": "https://i.imgur.com/C3zvW.jpg", "price": 150000, "hot": true },
+      { "name": "Móc khóa phim", "img": "https://i.imgur.com/C3zvW.jpg", "price": 50000 },
+      { "name": "Ly in hình", "img": "https://i.imgur.com/C3zvW.jpg", "price": 70000 },
+      { "name": "Áo thun", "img": "https://i.imgur.com/C3zvW.jpg", "price": 120000 },
+      { "name": "Poster", "img": "https://i.imgur.com/C3zvW.jpg", "price": 30000 },
+      { "name": "Sticker", "img": "https://i.imgur.com/C3zvW.jpg", "price": 20000 },
+      { "name": "Sổ tay", "img": "https://i.imgur.com/C3zvW.jpg", "price": 40000, "hot": true },
+      { "name": "Móc treo", "img": "https://i.imgur.com/C3zvW.jpg", "price": 35000 },
+      { "name": "Túi tote", "img": "https://i.imgur.com/C3zvW.jpg", "price": 80000 },
+      { "name": "Nón", "img": "https://i.imgur.com/C3zvW.jpg", "price": 90000 }
+    ]
+  },
+  {
+    "category": "Snack",
+    "products": [
+      { "name": "Snack khoai tây", "img": "https://i.imgur.com/wpxuL.jpg", "price": 15000, "hot": true },
+      { "name": "Snack ngô", "img": "https://i.imgur.com/wpxuL.jpg", "price": 20000 },
+      { "name": "Snack phô mai", "img": "https://i.imgur.com/wpxuL.jpg", "price": 18000 },
+      { "name": "Snack rong biển", "img": "https://i.imgur.com/wpxuL.jpg", "price": 20000 },
+      { "name": "Snack trái cây", "img": "https://i.imgur.com/wpxuL.jpg", "price": 25000 },
+      { "name": "Snack hạt", "img": "https://i.imgur.com/wpxuL.jpg", "price": 22000 },
+      { "name": "Snack socola", "img": "https://i.imgur.com/wpxuL.jpg", "price": 30000, "hot": true },
+      { "name": "Snack mặn", "img": "https://i.imgur.com/wpxuL.jpg", "price": 18000 },
+      { "name": "Snack cay", "img": "https://i.imgur.com/wpxuL.jpg", "price": 20000 },
+      { "name": "Snack ngọt", "img": "https://i.imgur.com/wpxuL.jpg", "price": 25000 }
+    ]
+  }
+]

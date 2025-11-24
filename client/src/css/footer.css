@@ -15,16 +15,12 @@
 
 .footer-left {
   max-width: 250px;
-  margin-right: 280px;
+  margin-right: 200px;
 }
 
 .footer-logo {
-  font-size: 28px;
-  font-weight: bold;
-  background: var(--periwinkle-top-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
+  width: 60%;
+  height: auto;
 }
 
 .newsletter {

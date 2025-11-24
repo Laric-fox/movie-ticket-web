@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sản phẩm Rạp Chiếu Phim</title>
+<link rel="stylesheet" href="./css/products.css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="content" id="content"></div>
+</div>
+
+<div class="popup-bg" id="popup">
+  <div class="popup">
+    <h2 id="popup-title">Sản phẩm</h2>
+
+    <div class="qty-box">
+      <button onclick="changeQty(-1)">-</button>
+      <span id="qty">1</span>
+      <button onclick="changeQty(1)">+</button>
+    </div>
+
+    <button class="card button" id="total-price-btn" onclick="addToCart()">
+      Thêm vào giỏ hàng
+    </button>
+
+    <button class="close-btn" onclick="closePopup()">Đóng</button>
+  </div>
+</div>
+
+<script src="./js/products.js"></script>
+</body>
+</html>
